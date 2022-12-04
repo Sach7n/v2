@@ -1,3 +1,8 @@
-export default function Contact(){
-    return <h1>Contact</h1>
+import ResponsiveSection from "../general/ResponsiveSection"
+import Title from "../general/Title"
+
+export default function Contact() {
+    return <ResponsiveSection>
+        <Title title="Contact" size="h3" center />
+    </ResponsiveSection>
 }
