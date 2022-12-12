@@ -11,7 +11,7 @@ export default function Experience() {
     const xs = useMediaQuery(theme.breakpoints.between("xs","sm"));
     const md = useMediaQuery(theme.breakpoints.up("md"));
     const lg = useMediaQuery(theme.breakpoints.up("lg"));
-    return <ResponsiveSection height={xs ? "130vh" : null}>
+    return <ResponsiveSection height={xs ? "110vh" : null}>
                     <Box id="experience"/>
                     <Title title="Experience" starting={44} center />
                     <ExperienceTabs/>

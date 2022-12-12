@@ -2,8 +2,8 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
+import { Typography , useMediaQuery, useTheme,Box} from '@mui/material';
 
 type CardItemPops = {
     title: any
@@ -14,12 +14,14 @@ type CardItemPops = {
 }
 
 export default function WorkCard1({ title, desc, tech, img, link }: CardItemPops) {
+    const theme = useTheme();
+    const xs = useMediaQuery(theme.breakpoints.between("xs","sm"));
     return (
         <Card
             sx={{
                 color: "info.main", border: "1px solid",
                 maxWidth: 320,
-                height: 450,
+                height: xs ? 500 : 440,
                 margin: "0% 2%",
                 borderRadius: 5,
                 borderColor: "info.dark",
