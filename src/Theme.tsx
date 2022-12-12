@@ -8,8 +8,13 @@ const mainTheme = createTheme({
       },
       secondary: {
         main: "#484a04",
+      },
+      info:{
+        main:"#fff",
+        dark:"#1ef7e2"
       }
     },
+    
   });
 
   export default mainTheme;

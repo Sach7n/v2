@@ -1,0 +1,40 @@
+.main_side_div 
+{
+  width: 20px;
+  margin:3;
+}
+
+.icon-bar 
+{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: fade-in linear 2s;
+}
+
+.icon-bar a {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  padding: 16px;
+  font-size: 20px;
+}
+.icon-bar i{
+  color: aliceblue;
+  transition: all 0.3s ease;
+}
+.icon-bar i:hover{
+  transform: scale(1.2);
+  color: aqua;
+}
+.content {
+  margin-left: 75px;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 769px){
+    .main_side_div 
+    {
+    display: none;
+    }   
+}

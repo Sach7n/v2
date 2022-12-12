@@ -1,12 +1,14 @@
 import Home from "./Screens/Home"
-import { Theme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import mainTheme from "./Theme"
 import "./App.css"
-
+import Sidebar from "./Components/general/Sidebar";
+import Navbar from "./Components/general/Navbar.tsx"
 function App() {
-  console.log(mainTheme)
   return (
     <ThemeProvider theme={mainTheme}>
+      <Navbar/>
+     <Sidebar/>
      <Home/> 
     </ThemeProvider>
   )
