@@ -6,9 +6,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import p1 from "../../images/3.png";
-import p2 from "../../images/2.png";
-import p3 from "../../images/4.png";
 import data from "./data"
 import WorkCard1 from './WorkCard1';
 
