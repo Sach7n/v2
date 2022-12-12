@@ -3,7 +3,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import mainTheme from "./Theme"
 import "./App.css"
 import Sidebar from "./Components/general/Sidebar";
-import Navbar from "./Components/general/Navbar.tsx"
+import Navbar from "./Components/general/Navbar"
 function App() {
   return (
     <ThemeProvider theme={mainTheme}>

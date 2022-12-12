@@ -12,13 +12,14 @@ interface LinkTabProps {
 }
 
 interface LinkProps {
-  activeClass?: string
-  to?: string
+  activeClass?: any
+  to: any
   spy?: any
   smooth?: any
   offset?: any
   duration?: any
   children?: any
+  handleClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 type NavTabs = {
@@ -47,12 +48,7 @@ function LinkTab(props: LinkProps) {
         },
 
       }}>
-      <Link
-        onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-          event.preventDefault();
-        }}
-        {...props}
-      />
+      <Link {...props}/>
     </Box>
 
   );

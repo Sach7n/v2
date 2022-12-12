@@ -12,8 +12,9 @@ const mainTheme = createTheme({
       info:{
         main:"#fff",
         dark:"#1ef7e2"
-      }
+      },
     },
+    
     
   });
 

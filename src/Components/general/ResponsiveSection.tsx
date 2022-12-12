@@ -9,7 +9,7 @@ type secProps = {
 }
 
 const style: SxProps<Theme> = {
-    height: "90%",
+    height: "92%",
     width: "90vw",
     margin: "3% 2%",
     boxShadow: 5,

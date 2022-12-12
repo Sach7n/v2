@@ -51,7 +51,7 @@ export default function ExperienceCard({title, techs,description,logo,time}: car
         <Grid item xs container direction="column" >
           <Grid item xs>
             <Typography variant="body2" gutterBottom>
-              {description.map((item,index)=><Typography sx={{padding:"0 2%"}} key={index} variant="body2" gutterBottom>{item}</Typography>)}
+              {description.map((item:any,index:number)=><Typography sx={{padding:"0 2%"}} key={index} variant="body2" gutterBottom>{item}</Typography>)}
             </Typography>
           </Grid>
 

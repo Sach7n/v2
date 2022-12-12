@@ -1,4 +1,4 @@
-import { Typography , useMediaQuery, useTheme} from '@mui/material';
+import { Typography , useMediaQuery, useTheme,TypographyTypeMap } from '@mui/material';
 import { ReactHTMLElement } from 'react';
 import { SxProps } from '@mui/system';
 import { Theme } from '@mui/material/styles';
@@ -10,9 +10,13 @@ type titleProps = {
     center?: boolean
     color?: any
     starting?: number
+    variant?: TypographyTypeMap["props"]["variant"];
+    component?: React.ElementType;
+    onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-export default function title({ starting, title,  highlight, newline, color, center }: titleProps) {
+export default function title({ children,
+    variant = "body1", starting, title,  highlight, newline, color, center }: React.PropsWithChildren<titleProps>) {
     const theme = useTheme();
     const xs = useMediaQuery(theme.breakpoints.up("xs"));
     const md = useMediaQuery(theme.breakpoints.up("md"));
@@ -22,7 +26,7 @@ export default function title({ starting, title,  highlight, newline, color, cen
     const style: SxProps<Theme> = {
         color: "info.main",
         textAlign: center ? "center" : "left",
-        marginBottom:"2vh",
+        marginBottom:"1vh",
         "> span": {
           color: color ? "info.dark" : "info.main",
         },
@@ -64,7 +68,7 @@ export default function title({ starting, title,  highlight, newline, color, cen
 
 
     return <>
-        <Typography sx={style} variant={lg ? sizes[0] : md ? sizes[1] : sm ? sizes[2] : sizes[0]} fontSize={renderSize()}>
+        <Typography sx={style} variant={variant} fontSize={renderSize()}>
                 {title}
                 <span>{newline ? <br /> : null} {highlight}</span>
         </Typography>
