@@ -1,5 +1,5 @@
 import p1 from "../../images/3.png";
-import p2 from "../../images/2.png";
+import p2 from "../../images/2.jpg";
 import p3 from "../../images/4.png";
 
 const data = [{
