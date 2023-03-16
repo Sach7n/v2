@@ -13,7 +13,7 @@ const style: SxProps<Theme> = {
     width: "90vw",
     margin: "4% 2% 0 2%",
     boxShadow: 5,
-    background: "radial-gradient(circle, rgb(18, 41, 36,0.9) 80%,rgba(24, 48, 44,0.9) 100%)",
+    background: "radial-gradient(circle, rgb(18, 41, 36,0.9) 80%,rgba(24, 48, 44,0.9y) 100%)",
     border: "3px solid transperent",
     borderRadius: "30px",
     paddingTop: "2vh"
