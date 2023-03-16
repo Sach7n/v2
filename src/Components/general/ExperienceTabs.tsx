@@ -12,6 +12,7 @@ interface TabPanelProps {
   index: number;
   value: number;
 }
+//added type
 type experience = {
   title: string,
   logo: any,
