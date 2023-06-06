@@ -57,7 +57,7 @@ function LinkTab(props: LinkProps) {
 export default function NavTabs() {
 
   return (
-    <Box sx={{ width: '100%', position: "fixed" }}>
+    <Box sx={{ width: '100%', position: "fixed",zIndex:99 }}>
       <Tabs centered>
         {NavList.map((item, index) =>
           <LinkTab
