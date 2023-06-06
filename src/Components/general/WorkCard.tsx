@@ -14,7 +14,7 @@ export default function MediaCard() {
     return (
         <Paper sx={{display:"flex",flexDirection:"row",background:"transparent", boxShadow:"none"}}>
         {data && data.map((item, index) =>
-        <WorkCard1 {...item}/>       )}
+        <WorkCard1 {...item} key={index}/>)}
         </Paper>
     );
 }

@@ -9,18 +9,21 @@ type secProps = {
 }
 
 const style: SxProps<Theme> = {
+    position:"relative",
+    top:"6%",
     height: "90%",
-    width: "90vw",
-    margin: "4% 2% 0 2%",
+    width: "100%",
+    maxWidth:"100%",
+    marginBottom: "4%",
     boxShadow: 5,
-    background: "radial-gradient(circle, rgb(18, 41, 36,0.9) 80%,rgba(24, 48, 44,0.9) 100%)",
+    background: "radial-gradient(circle, rgba(1,33,33,0.9921218487394958) 93%, rgba(7,37,33,0.9977240896358543) 100%)",
     border: "3px solid transperent",
     borderRadius: "30px",
     paddingTop: "2vh"
 }
 
 export default function ResponsiveSection({ children,height }: secProps) {
-    return <Container sx={{height:height?height:"100vh"}}>
+    return <Container sx={{height:height?height:"100vh",padding:0}}>
     <Container sx={style}>
         {children}
     </Container>

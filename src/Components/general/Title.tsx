@@ -18,7 +18,7 @@ type titleProps = {
 export default function title({ children,
     variant = "body1", starting, title,  highlight, newline, color, center }: React.PropsWithChildren<titleProps>) {
     const theme = useTheme();
-    const xs = useMediaQuery(theme.breakpoints.up("xs"));
+    const xs = useMediaQuery(theme.breakpoints.between("xs","sm"));
     const md = useMediaQuery(theme.breakpoints.up("md"));
     const lg = useMediaQuery(theme.breakpoints.up("lg"));
     const sm = useMediaQuery(theme.breakpoints.up("sm"));
