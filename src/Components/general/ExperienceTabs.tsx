@@ -22,30 +22,27 @@ type experience = {
 }
 const experience: experience[] = [
   {
-    title: "In A Pulse",
+    title: "Royal Bank of Canada",
     logo: logo1,
-    description: ["Working on a cross-platform On-Demand Delivery app that provides same-day delivery service",
-      "Build REST APIs and GraphQL APIs for the back-end, Develop front-end using React and Material UI",
-      "Integrate APIs like Stripe, SendGrid Email, Google Maps, Twilio SMS, Google & Facebook Sign in",
-      "MailChimp, and Geocoding API in the app, Was a part of a team where back-end was developed using Nodejs",
-      "AWS Amplify, DynamoDB, API Gateway, AppSync, Cognito, AWS Lambda, and S3, Worked in an agile environment",
-      "Collaborated with the business team and created functional requirements for the developers"],
-    techs: "Reactjs, Material UI, Nodejs, Express, React Native, DynamoDB, AWS Amplify, Twilio, Stripe",
-    time: "March 2022 -"
+    description: ["Specialized in crafting validation rules in Node.js, ensuring the integrity of incoming requests through intricate business logic. Implemented logic for client account relationships, client-client relationships, and various account types across different client and account categories.",
+      "Played a pivotal role in the creation of dynamic queries tailored to distinct business needs, augmenting the system's flexibility through the power of Node.js.",
+      "Contributed significantly to the orchestration of back-end logic, emphasizing validation, interpolation, query organization, and optimization of data retrieval processes.",
+      "Leveraged Node.js for coding, executed SQL queries for database interactions, and upheld code quality with thorough Jest test cases for each module prior to initiating pull requests (PRs).",
+      "Successfully converted a multitude of stored procedures to JavaScript logic, streamlining database interactions and amplifying the overall system efficiency.",
+      "Conducted end-to-end testing using Postman, validating the seamless integration of diverse back-end components."],
+    techs: "Nodejs, GraphQL, SQL, Express, JEST, Helios, React",
+    time: "March 2022 - February 2024"
   },
 
   {
-    title: "Benchmark IT services",
+    title: "Telus Mobility Corporation",
     logo: bits,
-    description: ["Designed and developed Front end for the company, mainly the login page, sign up page and dashboards",
-      "I was involved with UI/UX team to develop components with Reactjs, HTML and Pure CSS (Sometime Bootstrap, Material UI) and forward it to the full stack developers,so they do not have to worry about pixel perfection.",
-      "The company used agile methodology and required attention to detail because performance was the key element. We used cypress.io for testing.",
-      "Developed pixel perfect cross browser layouts.",
-      "Developed JavaScript required to make best UI/UX experience.",
-      "Developed responsive layout to meet current web standards.",
-      "Worked in a team to design the schema for the backend and created a database using Node and Mongo"],
+    description: ["Played a crucial role in the development of responsive and intuitive user interfaces using ReactJS and Redux for two distinct telecom projects.",
+      "Contributed significantly to an End-to-End project, creating dashboards and views within a stand-alone application for telecom agents. Incorporated ReactJS and Redux to manage state efficiently.",
+      "Played an integral role in a Micro-frontends project, contributing to the development of multiple standalone micro front ends that seamlessly integrated into a main shell application. Utilized ReactJS and Redux to modularize features and ensure a consistent user experience.",
+      "Ensured code quality and functionality through comprehensive testing, employing JEST to validate ReactJS components in both projects."],
     techs: "Reactjs, Redux, Typescript, Bootstrap, Nodejs, Express, MongoDB, Vults,Digital Ocean",
-    time: "July 2019 - March 2022"
+    time: " January 2020 - March 2022"
   }
 
 ]
