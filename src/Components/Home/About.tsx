@@ -36,19 +36,21 @@ export default function About() {
           starting={15}
           color="primary.main"
         />
+        {"\n"}
         <Text
           content={[
             {
               text: `The technologies I am currently working on are`,
             },
             {
-              text: " React, Node, GraphQL, MongoDB, Postgres, AWS",
+              text: " React, Node, GraphQL, MongoDB, Postgres, AWS.",
               highlight: true,
             },
           ]}
           starting={15}
           color="primary.main"
         />
+        {"\n"}
         <Text
           content={[
             {
