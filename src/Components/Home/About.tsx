@@ -55,7 +55,7 @@ export default function About() {
           content={[
             {
               text: `In my free time, I like to hit the gym since I work from home most of the
-              time. I also enjoy watching movies and going on hiking trips`,
+              time. I also enjoy`,
             },
             {
               text: " watching movies",
