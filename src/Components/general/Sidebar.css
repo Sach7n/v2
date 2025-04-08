@@ -10,6 +10,7 @@
   top: 50%;
   transform: translateY(-50%);
   animation: fade-in linear 2s;
+  left: 15%;
 }
 
 .icon-bar a {
