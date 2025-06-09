@@ -129,16 +129,14 @@ export default function Navbar() {
               initial="hidden"
               animate="visible"
               variants={tabVariant}
-              sx={{
-                color: "text.primary",
+              style={{
+                color: "inherit",
                 textDecoration: "none",
-                "&:hover": {
-                  color: "info.main",
-                  cursor: "pointer",
-                  textDecoration: "underline",
-                },
               }}
-              as="a"
+              whileHover={{
+                color: theme.palette.info.main,
+                cursor: "pointer",
+              }}
             >
               {name}
             </MotionLink>
@@ -221,6 +219,7 @@ export default function Navbar() {
                     initial="hidden"
                     animate="visible"
                     variants={tabVariant}
+                    style={{ color: "inherit" }}
                     sx={{
                       color: "text.primary",
                       textDecoration: "none",
@@ -241,6 +240,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   transition={{ delay: navDelay + 0.3, duration, ease: easing }}
+                  style={{ color: "inherit" }}
                   sx={{
                     color: "text.primary",
                     textDecoration: "none",
