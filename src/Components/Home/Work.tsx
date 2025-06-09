@@ -8,10 +8,9 @@ export default function Work() {
   const theme = useTheme();
   const xs = useMediaQuery(theme.breakpoints.between("xs", "sm"));
   return (
-    <ResponsiveSection>
-      <Box id="work" />
+    <>
       <Text title="Work" center />
       {xs ? <WorkSwiper /> : <WorkCard />}
-    </ResponsiveSection>
+    </>
   );
 }

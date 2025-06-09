@@ -1,7 +1,5 @@
 import { useMediaQuery, useTheme, Box } from "@mui/material";
 import Text from "../general/Text";
-
-import ResponsiveSection from "../general/ResponsiveSection";
 import { Container } from "@mui/material";
 
 export default function Hero() {
@@ -10,8 +8,7 @@ export default function Hero() {
   const sm = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
-    <ResponsiveSection>
-      <Box id="home" />
+    <>
       <Container
         sx={{
           position: "absolute",
@@ -45,6 +42,6 @@ export default function Hero() {
           color="primary.main"
         />
       </Container>
-    </ResponsiveSection>
+    </>
   );
 }

@@ -46,11 +46,11 @@ export default function text({
   const sm = useMediaQuery(theme.breakpoints.up("sm"));
   let size = starting ? starting : 44;
   const style: SxProps<Theme> = {
-    color: "info.main",
+    color: "text.primary",
     textAlign: center ? "center" : "left",
     marginBottom: "1vh",
     "> span": {
-      color: color ? "info.dark" : "info.main",
+      color: color ? "info.main" : "text.primary",
     },
   };
   const sizes = [
@@ -80,7 +80,7 @@ export default function text({
     } else if (sm) {
       subtract = 18;
     }
-    // if the value is less than 18 make it 18
+
     if (value - subtract < 18) {
       return 18;
     }
@@ -100,7 +100,7 @@ export default function text({
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                color: theme.palette.info.dark,
+                color: theme.palette.info.main,
                 textDecoration: "none",
               }}
             >
@@ -109,7 +109,7 @@ export default function text({
           ) : (
             <span
               style={{
-                color: item.highlight ? theme.palette.info.dark : "inherit",
+                color: item.highlight ? theme.palette.info.main : "inherit",
               }}
             >
               {item.text}

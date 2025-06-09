@@ -10,6 +10,7 @@ export default function MediaCard() {
         flexDirection: "row",
         background: "transparent",
         boxShadow: "none",
+        justifyContent: "center",
       }}
     >
       {data && data.map((item, index) => <WorkCard1 {...item} key={index} />)}

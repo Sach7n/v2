@@ -4,12 +4,11 @@ import Text from "../general/Text";
 
 export default function About() {
   const theme = useTheme();
-  const xs = useMediaQuery(theme.breakpoints.between("xs", "sm"));
+
   const sm = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
-    <ResponsiveSection height={xs ? "110vh" : null}>
-      <Box id="experience" />
+    <>
       <Text title="About" starting={44} center />
       <Box
         sx={{
@@ -87,6 +86,6 @@ export default function About() {
           color="primary.main"
         />
       </Box>
-    </ResponsiveSection>
+    </>
   );
 }
