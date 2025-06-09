@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Box,
   IconButton,
@@ -18,10 +18,10 @@ const NavList = [
 ];
 
 const MotionBox = motion(Box);
-
+const MotionLink = motion.a;
 export default function Navbar() {
   const theme = useTheme();
-  const { navDelay, duration, easing } = theme.animation;
+  const { navDelay, duration, easing } = (theme as any).animation;
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const toggleDrawer = () => setMobileOpen((open) => !open);
@@ -121,7 +121,7 @@ export default function Navbar() {
           }}
         >
           {NavList.map(({ name, link, delay }) => (
-            <MotionBox
+            <MotionLink
               key={name}
               component="a"
               href={`#${link}`}
@@ -138,9 +138,10 @@ export default function Navbar() {
                   textDecoration: "underline",
                 },
               }}
+              as="a"
             >
               {name}
-            </MotionBox>
+            </MotionLink>
           ))}
 
           <Box
@@ -165,7 +166,7 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <IconButton
           onClick={toggleDrawer}
-          sx={{ display: { md: "none" }, color: "text.primary", pl: "205%" }}
+          sx={{ display: { md: "none" }, color: "text.primary", pl: "200%" }}
           aria-label="open navigation menu"
         >
           <AnimatedMenuIcon isOpen={mobileOpen} />
@@ -212,7 +213,7 @@ export default function Navbar() {
             >
               <Stack spacing={2}>
                 {NavList.map(({ name, link, delay }) => (
-                  <MotionBox
+                  <MotionLink
                     key={name}
                     component="a"
                     href={`#${link}`}
@@ -232,9 +233,9 @@ export default function Navbar() {
                     onClick={toggleDrawer}
                   >
                     {name}
-                  </MotionBox>
+                  </MotionLink>
                 ))}
-                <MotionBox
+                <MotionLink
                   component="a"
                   href={pdf}
                   target="_blank"
@@ -252,7 +253,7 @@ export default function Navbar() {
                   onClick={toggleDrawer}
                 >
                   Resume
-                </MotionBox>
+                </MotionLink>
               </Stack>
             </MotionBox>
           </Box>

@@ -37,7 +37,11 @@ export const mainTheme = createTheme({
   shape: {
     borderRadius: 10,
   },
-  shadows: ["none", ...Array(24).fill("0px 0px 12px rgba(124, 77, 255, 0.12)")],
+  // @ts-ignore
+  shadows: [
+    "none",
+    ...Array(24).fill("0px 0px 12px rgba(124, 77, 255, 0.12)"),
+  ] as [string, ...string[]],
   animation: {
     navDelay: 0.3,
     tabDelay: 0.15,
@@ -78,6 +82,7 @@ export const darkCryptoTheme = createTheme({
   shape: {
     borderRadius: 10,
   },
+  // @ts-ignore
   shadows: ["none", ...Array(24).fill("0px 0px 20px rgba(0, 255, 255, 0.15)")],
   animation: {
     navDelay: 0.3,
