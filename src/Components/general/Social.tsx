@@ -24,8 +24,6 @@ const socialLinks = [
 ];
 
 const Social: React.FC = () => {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{

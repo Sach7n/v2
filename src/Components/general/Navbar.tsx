@@ -150,7 +150,6 @@ export default function Navbar() {
                 "&:hover": {
                   color: "info.main",
                   cursor: "pointer",
-                  textDecoration: "underline",
                 },
               },
             }}
@@ -164,7 +163,7 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <IconButton
           onClick={toggleDrawer}
-          sx={{ display: { md: "none" }, color: "text.primary", pl: "210%" }}
+          sx={{ display: { md: "none" }, color: "text.primary", pl: "220%" }}
           aria-label="open navigation menu"
         >
           <AnimatedMenuIcon isOpen={mobileOpen} />
@@ -191,22 +190,26 @@ export default function Navbar() {
               bgcolor: "rgba(0, 0, 0, 0.5)",
               display: "flex",
               justifyContent: "flex-end",
+              willChange: "opacity",
             }}
+            style={{ transform: "translateZ(0)" }}
             onClick={toggleDrawer}
           >
             <MotionBox
               key="drawer-panel"
-              initial={{ x: 250, opacity: 0 }}
+              initial={{ x: "100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: 250, opacity: 0 }}
-              transition={{ duration: 0.4, ease: easing }}
+              exit={{ x: "100%", opacity: 0 }}
+              transition={{ duration: 0.4, ease: easing, delay: 0.05 }}
               sx={{
                 width: 250,
                 p: 3,
                 height: "100%",
                 bgcolor: "background.paper",
                 pt: "20%",
+                willChange: "transform, opacity",
               }}
+              style={{ transform: "translateZ(0)" }}
               onClick={(e) => e.stopPropagation()}
             >
               <Stack spacing={2}>
@@ -225,7 +228,6 @@ export default function Navbar() {
                       textDecoration: "none",
                       "&:hover": {
                         color: "info.main",
-                        textDecoration: "underline",
                         cursor: "pointer",
                       },
                     }}
