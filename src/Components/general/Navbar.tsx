@@ -164,7 +164,7 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <IconButton
           onClick={toggleDrawer}
-          sx={{ display: { md: "none" }, color: "text.primary", pl: "200%" }}
+          sx={{ display: { md: "none" }, color: "text.primary", pl: "210%" }}
           aria-label="open navigation menu"
         >
           <AnimatedMenuIcon isOpen={mobileOpen} />
