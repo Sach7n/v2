@@ -16,7 +16,7 @@ import LaunchIcon from "@mui/icons-material/Launch";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InfoIcon from "@mui/icons-material/Info";
 import projectsData, { ProjectData } from "./data";
-import ProjectDetailModal from "./ProjectDetailModal";
+import ProjectDetailModal from "./ProjectDetailsmOdal";
 
 const WorkGrid: React.FC = () => {
   const theme = useTheme();
