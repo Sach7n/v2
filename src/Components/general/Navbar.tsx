@@ -2,263 +2,254 @@ import { useState } from "react";
 import {
   Box,
   IconButton,
-  Drawer,
   useTheme,
   Typography,
   Stack,
+  Button,
 } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import pdf from "./New_frontend_v2.pdf";
-import { AnimatePresence } from "framer-motion";
 
 const NavList = [
-  { name: "Home", link: "home", delay: 0 },
-  { name: "Experience", link: "experience", delay: 0.1 },
-  { name: "Work", link: "work", delay: 0.2 },
+  { name: "Home", link: "home" },
+  { name: "About", link: "about" },
+  { name: "Experience", link: "experience" },
+  { name: "Work", link: "work" },
 ];
 
-const MotionBox = motion(Box);
-const MotionLink = motion.a;
 export default function Navbar() {
   const theme = useTheme();
-  const { navDelay, duration, easing } = (theme as any).animation;
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const toggleDrawer = () => setMobileOpen((open) => !open);
 
-  const tabVariant = {
-    hidden: { opacity: 0, y: -10 },
-    visible: (customDelay: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: navDelay + customDelay,
-        duration,
-        ease: easing,
-      },
-    }),
-  };
-
-  function AnimatedMenuIcon({ isOpen }: { isOpen: boolean }) {
-    const variant = {
-      closed: {
-        top: "0%",
-        rotate: 0,
-        opacity: 1,
-        d1: "M 2 5 H 22",
-        d2: "M 2 12 H 22",
-        d3: "M 2 19 H 22",
-      },
-      open: {
-        d1: "M 4 4 L 20 20",
-        d2: "M 12 12 L 12 12", // invisible
-        d3: "M 4 20 L 20 4",
-      },
-    };
-
-    return (
-      <svg width="24" height="24" viewBox="0 0 24 24">
-        <motion.path
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          variants={{
-            closed: { d: variant.closed.d1 },
-            open: { d: variant.open.d1 },
-          }}
-          animate={isOpen ? "open" : "closed"}
-        />
-        <motion.path
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          variants={{
-            closed: { d: variant.closed.d2, opacity: 1 },
-            open: { d: variant.open.d2, opacity: 0 },
-          }}
-          animate={isOpen ? "open" : "closed"}
-        />
-        <motion.path
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          variants={{
-            closed: { d: variant.closed.d3 },
-            open: { d: variant.open.d3 },
-          }}
-          animate={isOpen ? "open" : "closed"}
-        />
-      </svg>
-    );
-  }
-
   return (
     <>
+      {/* Fixed Header Bar */}
       <Box
         component="nav"
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          pr: 30,
-          backdropFilter: "blur(10px)",
           position: "fixed",
           top: 0,
           left: 0,
-          width: "100%",
+          right: 0,
+          height: "70px",
+          backgroundColor: `${theme.palette.background.default}95`,
+          backdropFilter: "blur(20px)",
+          borderBottom: `1px solid ${theme.palette.divider}`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          px: { xs: 3, sm: 6 },
           zIndex: 1300,
-          height: "5%",
+          transition: "all 0.3s ease",
         }}
       >
-        <Typography variant="h6" sx={{ color: "primary.main" }}></Typography>
+        {/* Logo/Brand */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          <Typography
+            variant="h5"
+            sx={{
+              fontFamily: theme.typography.fontFamily,
+              fontWeight: 800,
+              color: theme.palette.primary.main,
+              cursor: "pointer",
+              userSelect: "none",
+            }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            SM
+          </Typography>
+        </motion.div>
 
-        {/* Desktop nav */}
+        {/* Desktop Navigation */}
         <Box
           sx={{
             display: { xs: "none", md: "flex" },
-            gap: 4,
             alignItems: "center",
+            gap: 4,
           }}
         >
-          {NavList.map(({ name, link, delay }) => (
-            <MotionLink
+          {NavList.map(({ name, link }, index) => (
+            <motion.div
               key={name}
-              component="a"
-              href={`#${link}`}
-              custom={delay}
-              initial="hidden"
-              animate="visible"
-              variants={tabVariant}
-              style={{
-                color: "inherit",
-                textDecoration: "none",
-              }}
-              whileHover={{
-                color: theme.palette.info.main,
-                cursor: "pointer",
-              }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
             >
-              {name}
-            </MotionLink>
+              <Box
+                component="a"
+                href={`#${link}`}
+                sx={{
+                  color: theme.palette.text.secondary,
+                  textDecoration: "none",
+                  fontFamily: theme.typography.fontFamily,
+                  fontSize: "0.95rem",
+                  fontWeight: 500,
+                  position: "relative",
+                  transition: "color 0.3s ease",
+                  "&:hover": {
+                    color: theme.palette.primary.main,
+                  },
+                  "&::after": {
+                    content: '""',
+                    position: "absolute",
+                    bottom: "-6px",
+                    left: "50%",
+                    width: "0%",
+                    height: "2px",
+                    backgroundColor: theme.palette.primary.main,
+                    transition: "all 0.3s ease",
+                    transform: "translateX(-50%)",
+                  },
+                  "&:hover::after": {
+                    width: "100%",
+                  },
+                }}
+              >
+                {name}
+              </Box>
+            </motion.div>
           ))}
 
-          <Box
-            sx={{
-              "> a": {
-                color: "text.primary",
-
-                "&:hover": {
-                  color: "info.main",
-                  cursor: "pointer",
-                },
-              },
-            }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
           >
-            <a href={pdf} target="_blank" rel="noopener noreferrer">
+            <Button
+              href={pdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outlined"
+              sx={{
+                color: theme.palette.primary.main,
+                borderColor: theme.palette.primary.main,
+                borderWidth: "2px",
+                borderRadius: 2,
+                px: 3,
+                py: 1,
+                fontSize: "0.9rem",
+                fontWeight: 600,
+                fontFamily: theme.typography.fontFamily,
+                textTransform: "none",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  backgroundColor: `${theme.palette.primary.main}15`,
+                  borderColor: theme.palette.primary.main,
+                  transform: "translateY(-2px)",
+                  boxShadow: `0 8px 25px ${theme.palette.primary.main}25`,
+                },
+              }}
+            >
               Resume
-            </a>
-          </Box>
+            </Button>
+          </motion.div>
         </Box>
 
-        {/* Mobile menu button */}
+        {/* Mobile Menu Button */}
         <IconButton
           onClick={toggleDrawer}
-          sx={{ display: { md: "none" }, color: "text.primary", pl: "220%" }}
-          aria-label="open navigation menu"
+          sx={{
+            display: { md: "none" },
+            color: theme.palette.text.primary,
+            backgroundColor: "transparent",
+            "&:hover": {
+              backgroundColor: `${theme.palette.primary.main}10`,
+            },
+          }}
         >
-          <AnimatedMenuIcon isOpen={mobileOpen} />
+          {mobileOpen ? <CloseIcon /> : <MenuIcon />}
         </IconButton>
       </Box>
 
-      {/* Mobile drawer */}
+      {/* Mobile Fullscreen Menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <Box
-            component={motion.div}
-            key="mobile-backdrop"
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            sx={{
+            style={{
               position: "fixed",
               top: 0,
               left: 0,
               width: "100vw",
               height: "100vh",
-              zIndex: 1200,
-              bgcolor: "rgba(0, 0, 0, 0.5)",
+              backgroundColor: theme.palette.background.default,
+              zIndex: 1400,
               display: "flex",
-              justifyContent: "flex-end",
-              willChange: "opacity",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-            style={{ transform: "translateZ(0)" }}
-            onClick={toggleDrawer}
           >
-            <MotionBox
-              key="drawer-panel"
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{ duration: 0.4, ease: easing, delay: 0.05 }}
-              sx={{
-                width: 250,
-                p: 3,
-                height: "100%",
-                bgcolor: "background.paper",
-                pt: "20%",
-                willChange: "transform, opacity",
-              }}
-              style={{ transform: "translateZ(0)" }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Stack spacing={2}>
-                {NavList.map(({ name, link, delay }) => (
-                  <MotionLink
-                    key={name}
+            <Stack spacing={4} alignItems="center">
+              {NavList.map(({ name, link }, index) => (
+                <motion.div
+                  key={name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                >
+                  <Box
                     component="a"
                     href={`#${link}`}
-                    custom={delay}
-                    initial="hidden"
-                    animate="visible"
-                    variants={tabVariant}
-                    style={{ color: "inherit" }}
+                    onClick={toggleDrawer}
                     sx={{
-                      color: "text.primary",
+                      color: theme.palette.text.primary,
                       textDecoration: "none",
+                      fontSize: "2rem",
+                      fontWeight: 600,
+                      fontFamily: theme.typography.fontFamily,
+                      transition: "color 0.3s ease",
                       "&:hover": {
-                        color: "info.main",
-                        cursor: "pointer",
+                        color: theme.palette.primary.main,
                       },
                     }}
-                    onClick={toggleDrawer}
                   >
                     {name}
-                  </MotionLink>
-                ))}
-                <MotionLink
-                  component="a"
+                  </Box>
+                </motion.div>
+              ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+              >
+                <Button
                   href={pdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  transition={{ delay: navDelay + 0.3, duration, ease: easing }}
-                  style={{ color: "inherit" }}
-                  sx={{
-                    color: "text.primary",
-                    textDecoration: "none",
-                    "&:hover": {
-                      color: "info.main",
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                    },
-                  }}
+                  variant="outlined"
                   onClick={toggleDrawer}
+                  sx={{
+                    color: theme.palette.primary.main,
+                    borderColor: theme.palette.primary.main,
+                    borderWidth: "2px",
+                    borderRadius: 2,
+                    px: 4,
+                    py: 1.5,
+                    fontSize: "1.2rem",
+                    fontWeight: 600,
+                    fontFamily: theme.typography.fontFamily,
+                    textTransform: "none",
+                    mt: 2,
+                  }}
                 >
                   Resume
-                </MotionLink>
-              </Stack>
-            </MotionBox>
-          </Box>
+                </Button>
+              </motion.div>
+            </Stack>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

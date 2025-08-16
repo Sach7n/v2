@@ -1,7 +1,7 @@
 import { Container, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { SxProps } from "@mui/system";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Theme } from "@mui/material/styles";
 
@@ -30,71 +30,78 @@ export default function ResponsiveSection({
 }: secProps) {
   const theme = useTheme();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
+
+  // Safe intersection observer settings
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "0px 0px -10% 0px",
+    amount: 0.1,
+  });
 
   const style: SxProps<Theme> = {
     position: "relative",
-    top: theme.spacing(1),
-
-    minHeight: "88vh",
+    minHeight: "auto",
     width: "100%",
     maxWidth: "100%",
-    mb: theme.spacing(5),
-    //background: `linear-gradient(to bottom, ${theme.palette.background.paper} 0%, ${theme.palette.background.default} 100%)`,
-    background: `linear-gradient(145deg, ${theme.palette.background.paper} 0%, ${theme.palette.background.default} 100%)`,
-    border: `1px solid ${borderColor || theme.palette.background.paper}`,
-    paddingTop: theme.spacing(2),
+    mb: 0,
+    background: `linear-gradient(135deg, ${theme.palette.background.paper}40 0%, ${theme.palette.background.default}60 100%)`,
+    backdropFilter: "blur(10px)",
+    border: `1px solid ${borderColor || theme.palette.divider}20`,
+    borderRadius: 0,
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(8),
     color: theme.palette.text.primary,
     fontFamily: theme.typography.fontFamily,
+    overflow: "hidden",
     ...sx,
   };
+
+  // Simplified animation variants
   const motionVariant = {
     hidden: {
       opacity: 0,
-      scale: 0.98,
+      y: 20,
     },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
         delay: animationConfig.delay || 0.1,
-        duration: animationConfig.duration || 0.9,
-        ease: [0.22, 1, 0.36, 1],
-        type: "spring",
-        stiffness: 80,
-        damping: 20,
+        duration: animationConfig.duration || 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
+
   return (
-    <AnimatePresence>
-      <motion.div
-        key={id}
-        layoutId="uniqueId"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <Container
-          sx={{ height: height || "100vh", padding: 0, paddingTop: 7 }}
-          maxWidth={false}
-          id={id}
+    <Container
+      sx={{
+        height: id === "home" ? height || "100vh" : "auto",
+        padding: 0,
+        paddingTop: 0,
+        maxWidth: "100% !important",
+        width: "100%",
+      }}
+      maxWidth={false}
+      id={id}
+    >
+      {animateOnScroll ? (
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={motionVariant}
+          style={{
+            width: "100%",
+            willChange: "opacity, transform",
+            transform: "translateZ(0)",
+          }}
         >
-          {animateOnScroll ? (
-            <motion.div
-              ref={ref}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              variants={motionVariant}
-            >
-              <Box sx={style}>{children}</Box>
-            </motion.div>
-          ) : (
-            <Box sx={style}>{children}</Box>
-          )}
-        </Container>
-      </motion.div>
-    </AnimatePresence>
+          <Box sx={style}>{children}</Box>
+        </motion.div>
+      ) : (
+        <Box sx={style}>{children}</Box>
+      )}
+    </Container>
   );
 }
