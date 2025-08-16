@@ -156,7 +156,6 @@ export default function Hero() {
               >
                 Pay.com.au
               </Box>
-              .
             </Typography>
           </motion.div>
 

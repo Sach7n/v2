@@ -3,6 +3,7 @@ import {
   CardActionArea,
   CardMedia,
   CardContent,
+  CardActions,
   Typography,
   useTheme,
   Box,
@@ -33,42 +34,43 @@ export default function WorkCard1({
 }: CardItemProps) {
   const theme = useTheme();
 
-  // Safe tech array handling
-  let techArray: string[] = [];
-
-  try {
-    if (Array.isArray(tech)) {
-      techArray = tech;
-    } else if (typeof tech === "string") {
-      techArray = tech.split(",").map((t: string) => t.trim());
-    } else {
-      techArray = [];
-    }
-  } catch (error) {
-    console.error("Error processing tech array:", error);
-    techArray = [];
-  }
+  const techArray = tech.map((t: string) => t.trim());
 
   return (
     <motion.div
-      whileHover={{ y: -6 }}
+      whileHover={{ y: -8 }}
       transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <Card
         sx={{
-          maxWidth: 360,
-          height: 450,
+          maxWidth: 380,
+          height: 480,
           mx: 2,
-          borderRadius: 3,
+          borderRadius: 2,
           backgroundColor: theme.palette.background.paper,
           color: "text.primary",
-          border: `1px solid ${theme.palette.divider}`,
+          border: `1px solid ${theme.palette.divider}40`,
           overflow: "hidden",
           position: "relative",
           transition: "all 0.3s ease",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: `linear-gradient(135deg, ${theme.palette.primary.main}08 0%, transparent 50%)`,
+            opacity: 0,
+            transition: "opacity 0.3s ease",
+            zIndex: 1,
+          },
           "&:hover": {
             borderColor: theme.palette.primary.main,
-            boxShadow: `0 16px 32px ${theme.palette.primary.main}20`,
+            boxShadow: `0 20px 40px ${theme.palette.primary.main}20`,
+            "&::before": {
+              opacity: 1,
+            },
           },
         }}
         elevation={0}
@@ -79,35 +81,35 @@ export default function WorkCard1({
             href={link}
             target="_blank"
             sx={{
-              height: "180px",
+              height: "200px",
               "&:hover .image": {
-                transform: "scale(1.03)",
+                transform: "scale(1.05)",
               },
             }}
           >
             <CardMedia
               component="img"
-              height="180"
+              height="200"
               image={img}
               alt={title}
               className="image"
               sx={{
                 objectFit: "cover",
                 transition: "transform 0.4s ease",
-                filter: "brightness(0.9)",
+                filter: "grayscale(100%) contrast(1.2)",
                 "&:hover": {
-                  filter: "brightness(1)",
+                  filter: "grayscale(0%) contrast(1)",
                 },
               }}
             />
           </CardActionArea>
 
-          {/* Action Links */}
+          {/* Overlay with links */}
           <Box
             sx={{
               position: "absolute",
-              top: 12,
-              right: 12,
+              top: 16,
+              right: 16,
               display: "flex",
               gap: 1,
               zIndex: 2,
@@ -119,16 +121,12 @@ export default function WorkCard1({
                 target="_blank"
                 size="small"
                 sx={{
-                  backgroundColor: `${theme.palette.background.default}95`,
+                  backgroundColor: `${theme.palette.background.default}90`,
                   backdropFilter: "blur(10px)",
                   color: "text.primary",
-                  width: 32,
-                  height: 32,
-                  transition: "all 0.3s ease",
                   "&:hover": {
-                    backgroundColor: theme.palette.primary.main,
-                    color: theme.palette.background.default,
-                    transform: "scale(1.1)",
+                    backgroundColor: theme.palette.background.default,
+                    color: theme.palette.primary.main,
                   },
                 }}
               >
@@ -140,16 +138,12 @@ export default function WorkCard1({
               target="_blank"
               size="small"
               sx={{
-                backgroundColor: `${theme.palette.background.default}95`,
+                backgroundColor: `${theme.palette.background.default}90`,
                 backdropFilter: "blur(10px)",
                 color: "text.primary",
-                width: 32,
-                height: 32,
-                transition: "all 0.3s ease",
                 "&:hover": {
-                  backgroundColor: theme.palette.primary.main,
-                  color: theme.palette.background.default,
-                  transform: "scale(1.1)",
+                  backgroundColor: theme.palette.background.default,
+                  color: theme.palette.primary.main,
                 },
               }}
             >
@@ -159,16 +153,15 @@ export default function WorkCard1({
         </Box>
 
         {/* Content Section */}
-        <CardContent sx={{ px: 3, py: 3, flex: 1 }}>
+        <CardContent sx={{ px: 3, py: 2.5, position: "relative", zIndex: 2 }}>
           <Typography
             variant="h6"
             component="div"
+            gutterBottom
             sx={{
-              fontWeight: 700,
+              fontWeight: 600,
               color: "text.primary",
               mb: 1.5,
-              fontSize: "1.2rem",
-              fontFamily: theme.typography.fontFamily,
             }}
           >
             {title}
@@ -179,58 +172,52 @@ export default function WorkCard1({
             sx={{
               color: "text.secondary",
               lineHeight: 1.6,
-              mb: 3,
-              fontSize: "0.95rem",
+              mb: 2,
             }}
           >
             {desc}
           </Typography>
 
-          {/* Tech Stack - Only render if we have tech data */}
-          {techArray.length > 0 && (
-            <Stack
-              direction="row"
-              spacing={1}
-              sx={{
-                flexWrap: "wrap",
-                gap: 1,
-              }}
-            >
-              {techArray
-                .slice(0, 4)
-                .map((technology: string, index: number) => (
-                  <Chip
-                    key={index}
-                    label={technology}
-                    size="small"
-                    sx={{
-                      backgroundColor: `${theme.palette.primary.main}15`,
-                      color: theme.palette.primary.main,
-                      border: `1px solid ${theme.palette.primary.main}40`,
-                      fontFamily: theme.typography.fontFamily,
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      "&:hover": {
-                        backgroundColor: `${theme.palette.primary.main}25`,
-                      },
-                    }}
-                  />
-                ))}
-              {techArray.length > 4 && (
-                <Chip
-                  label={`+${techArray.length - 4}`}
-                  size="small"
-                  sx={{
-                    backgroundColor: `${theme.palette.text.secondary}15`,
-                    color: theme.palette.text.secondary,
-                    fontFamily: theme.typography.fontFamily,
-                    fontSize: "0.75rem",
-                    fontWeight: 600,
-                  }}
-                />
-              )}
-            </Stack>
-          )}
+          {/* Tech Stack */}
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{
+              flexWrap: "wrap",
+              gap: 1,
+            }}
+          >
+            {techArray.slice(0, 4).map((technology: string, index: number) => (
+              <Chip
+                key={index}
+                label={technology}
+                size="small"
+                sx={{
+                  backgroundColor: `${theme.palette.primary.main}15`,
+                  color: theme.palette.primary.main,
+                  border: `1px solid ${theme.palette.primary.main}30`,
+                  fontFamily: theme.typography.fontFamily,
+                  fontSize: "0.75rem",
+                  fontWeight: 500,
+                  "&:hover": {
+                    backgroundColor: `${theme.palette.primary.main}25`,
+                  },
+                }}
+              />
+            ))}
+            {techArray.length > 4 && (
+              <Chip
+                label={`+${techArray.length - 4}`}
+                size="small"
+                sx={{
+                  backgroundColor: `${theme.palette.text.secondary}15`,
+                  color: theme.palette.text.secondary,
+                  fontFamily: theme.typography.fontFamily,
+                  fontSize: "0.75rem",
+                }}
+              />
+            )}
+          </Stack>
         </CardContent>
       </Card>
     </motion.div>

@@ -29,6 +29,19 @@ type experience = {
 const experience: experience[] = [
   {
     title: "Full Stack Developer",
+    company: "Pay.com.au",
+    description: [
+      "Implemented comprehensive payment processing flows, including **PayID**, **PayTo**, and international **FX payments**, to expand the platform's financial services offering.",
+      "Integrated a custom **3D Secure (3DS)** authentication service to enhance transaction security and minimize fraudulent card activity.",
+      "Streamlined complex financial operations by building a **reconciliation system** to ensure accurate accounting and transaction matching across all payment methods.",
+      "Wrote **automated cron jobs** for efficient batch processing of payments and refunds, significantly improving operational speed and reliability.",
+      "Collaborated with product and compliance teams to ensure all payment solutions met industry standards and regulatory requirements.",
+    ],
+    techs: "React, Node.js, Express, PostgreSQL, MongoDB, AWS",
+    time: "May 2024 - Present",
+  },
+  {
+    title: "Full Stack Developer",
     company: "Royal Bank of Canada",
     // logo: logo1,
     description: [

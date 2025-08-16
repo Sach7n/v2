@@ -26,7 +26,7 @@ const sections = [
   },
   {
     id: "work",
-    component: <Work />,
+    component: <Work displayMode="carousel" />,
     animationConfig: { delay: 0.2 },
   },
 ];

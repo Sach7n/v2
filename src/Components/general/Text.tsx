@@ -69,7 +69,7 @@ export default function Text({
     if (isMobile) {
       return Math.max(value - 12, 16);
     } else if (lg) {
-      return value + 4;
+      return value + 1;
     }
 
     return value;
@@ -192,7 +192,7 @@ export default function Text({
               sx={{
                 color: theme.palette.primary.main,
                 textDecoration: "none",
-                fontWeight: 600,
+                fontWeight: 300,
                 position: "relative",
                 "&::after": {
                   content: '""',

@@ -81,7 +81,7 @@ export default function About() {
               />
             </motion.div>
 
-            <Box sx={{ mt: 4 }}>
+            <Box sx={{ mt: 1 }}>
               <motion.div variants={itemVariants}>
                 <Text
                   content={[
@@ -102,7 +102,7 @@ export default function About() {
               </motion.div>
             </Box>
 
-            <Box sx={{ mt: 4 }}>
+            <Box sx={{ mt: 1 }}>
               <motion.div variants={itemVariants}>
                 <Text
                   content={[
@@ -115,7 +115,7 @@ export default function About() {
               </motion.div>
             </Box>
 
-            <Box sx={{ mt: 4 }}>
+            <Box sx={{ mt: 1 }}>
               <motion.div variants={itemVariants}>
                 <Text
                   content={[

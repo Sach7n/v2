@@ -1,10 +1,20 @@
 import { useMediaQuery, useTheme, Container } from "@mui/material";
 import Text from "../general/Text";
+import { motion } from "framer-motion";
+import WorkGrid from "../general/WorkGrid";
+import WorkExpandable from "../general/WorkExpandable";
+import WorkCarousel from "../general/WorkCarousel";
+// Import the old components as fallback
 import WorkCard from "../general/WorkCard";
 import WorkSwiper from "../general/WorkSwiper";
-import { motion } from "framer-motion";
 
-export default function Work() {
+type DisplayMode = "modal" | "expandable" | "carousel" | "legacy";
+
+interface WorkProps {
+  displayMode?: DisplayMode;
+}
+
+export default function Work({ displayMode = "legacy" }: WorkProps) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -31,8 +41,23 @@ export default function Work() {
     },
   };
 
+  const renderWorkComponent = () => {
+    switch (displayMode) {
+      case "modal":
+        return <WorkGrid />;
+      case "expandable":
+        return <WorkExpandable />;
+      case "carousel":
+        return <WorkCarousel />;
+      case "legacy":
+      default:
+        // Use your original components as fallback
+        return isMobile ? <WorkSwiper /> : <WorkCard />;
+    }
+  };
+
   return (
-    <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
+    <Container maxWidth="xl" sx={{ py: { xs: 6, md: 12 } }}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -43,9 +68,7 @@ export default function Work() {
           <Text title="Featured Projects" center={isMobile} />
         </motion.div>
 
-        <motion.div variants={itemVariants}>
-          {isMobile ? <WorkSwiper /> : <WorkCard />}
-        </motion.div>
+        <motion.div variants={itemVariants}>{renderWorkComponent()}</motion.div>
       </motion.div>
     </Container>
   );

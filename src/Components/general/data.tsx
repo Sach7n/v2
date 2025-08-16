@@ -65,17 +65,17 @@ Since this is a side hustle, I opted for free services to keep costs low. My goa
       "Image optimization with Cloudinary",
       "Responsive design for mobile/desktop",
     ],
-    github: "https://github.com/Sach7n/ecommerce-project",
-    live: "https://react-ecomm1.netlify.app/",
+    github: undefined,
+    live: "https://tyohar-fest.com.au/",
     category: "fullstack",
     status: "completed",
-    timeline: "6 months",
+    timeline: "2 months",
   },
   {
     id: "travel-india",
     title: "Travel India Explorer",
     shortDesc:
-      "A single page application that helps users discover travel destinations across India and bookmark their favorite places.",
+      "A single page application that helps users discover travel destinations across India and bookmark their favorite places. My first major personal project.",
     detailedDesc: `Travel India Explorer was born from my love for exploring the diverse beauty of India. I wanted to create a platform that not only showcases incredible destinations but also helps fellow travelers plan their next adventure.
 
 Built with **React** and powered by **Firebase**, this application features a clean, intuitive interface that makes discovering new places effortless. I implemented **custom hooks** for state management and data fetching, ensuring smooth performance across all interactions.
