@@ -37,7 +37,7 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   if (!project) return null;
-
+  // test
   const formatDescription = (text: string) => {
     return text.split("\n\n").map((paragraph, index) => (
       <Typography
