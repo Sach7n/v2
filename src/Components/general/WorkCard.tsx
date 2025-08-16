@@ -13,7 +13,15 @@ export default function MediaCard() {
         justifyContent: "center",
       }}
     >
-      {data && data.map((item, index) => <WorkCard1 {...item} key={index} />)}
+      {data &&
+        data.map((item, index) => (
+          <WorkCard1
+            key={index}
+            {...item}
+            desc={item.shortDesc || item.detailedDesc} // Map to desc
+            link={item.live} // Map to link (adjust property name as needed)
+          />
+        ))}
     </Paper>
   );
 }
