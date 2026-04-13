@@ -53,10 +53,9 @@ export default function Home() {
     };
 
     const handleWheel = (e: WheelEvent) => {
-      // Only handle wheel events on desktop
+      e.preventDefault();
       if (isScrolling || isMobile) return;
 
-      e.preventDefault(); // Prevent default scroll
       isScrolling = true;
 
       // Shorter timeout to make scrolling feel more responsive

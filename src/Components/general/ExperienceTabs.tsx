@@ -3,13 +3,8 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import ExperienceCard from "./ExperienceCard";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
-
-// You'll need to import your actual logos
-// import logo1 from "../../images/logo.png";
-// import bits from "../../images/bits.png";
 
 interface TabPanelProps {
   children?: React.ReactNode;
