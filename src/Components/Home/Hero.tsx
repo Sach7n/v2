@@ -110,7 +110,7 @@ export default function Hero() {
                 fontFamily: `"Inter", "Roboto", sans-serif`,
               }}
             >
-              Full-Stack Developer & Fintech Engineer
+              Full-Stack Developer
             </Typography>
           </motion.div>
 
