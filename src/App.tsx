@@ -1,7 +1,7 @@
 import Home from "./Screens/Home";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
-import { darkMinimalTheme, industrialTheme } from "./Theme";
+import { darkMinimalTheme } from "./Theme";
 import Sidebar from "./Components/general/Sidebar";
 import Navbar from "./Components/general/Navbar";
 import MainContainer from "./Components/general/MainBackgroundDefault";
@@ -9,23 +9,9 @@ import { LoadingScreen } from "./Components/general/LoadingScreen";
 import { AnimatePresence } from "framer-motion";
 
 function App() {
-  const themes = [darkMinimalTheme, industrialTheme];
-  const [themeIndex, setThemeIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    try {
-      const interval = setInterval(() => {
-        setThemeIndex((prevIndex) => (prevIndex + 1) % themes.length);
-      }, 90000);
-
-      return () => clearInterval(interval);
-    } catch (error) {
-      console.error("Theme switching error:", error);
-    }
-  }, []);
-
-  const currentTheme = themes[themeIndex];
+  const currentTheme = darkMinimalTheme;
 
   const handleLoadingComplete = () => {
     setIsLoading(false);

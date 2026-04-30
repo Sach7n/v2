@@ -4,9 +4,10 @@ import {
   Box,
   Typography,
   Container,
+  Button,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { Button } from "@mui/material";
+import pdf from "../general/New_frontend_v2.pdf";
 
 export default function Hero() {
   const theme = useTheme();
@@ -53,23 +54,6 @@ export default function Hero() {
         style={{ width: "100%" }}
       >
         <Box sx={{ maxWidth: { xs: "100%", md: "90%" } }}>
-          {/* Greeting */}
-          <motion.div variants={itemVariants}>
-            <Typography
-              variant="body1"
-              sx={{
-                color: theme.palette.primary.main,
-                fontFamily: theme.typography.fontFamily,
-                fontSize: { xs: "1.1rem", md: "1.3rem" },
-                fontWeight: 600,
-                mb: 2,
-                letterSpacing: "0.05em",
-              }}
-            >
-              Hello, I'm
-            </Typography>
-          </motion.div>
-
           {/* Main Name */}
           <motion.div variants={itemVariants}>
             <Typography
@@ -110,7 +94,7 @@ export default function Hero() {
                 fontFamily: `"Inter", "Roboto", sans-serif`,
               }}
             >
-              Full-Stack Developer
+              Full-Stack Engineer
             </Typography>
           </motion.div>
 
@@ -163,7 +147,9 @@ export default function Hero() {
           <motion.div variants={itemVariants}>
             <Box sx={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
               <Button
-                href="#work"
+                href={pdf}
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="contained"
                 size="large"
                 sx={{
@@ -184,7 +170,7 @@ export default function Hero() {
                   },
                 }}
               >
-                View My Work
+                View Resume
               </Button>
 
               <Button
@@ -252,13 +238,13 @@ export default function Hero() {
               }}
             >
               <Box sx={{ color: theme.palette.primary.main, mb: 1 }}>
-                // Current Status
+                // Focus areas
               </Box>
-              <Box sx={{ mb: 1 }}>const developer = &#123;</Box>
-              <Box sx={{ ml: 2, mb: 1 }}>name: "Sachin Macwan",</Box>
-              <Box sx={{ ml: 2, mb: 1 }}>role: "Full-Stack Dev",</Box>
+              <Box sx={{ mb: 1 }}>const engineer = &#123;</Box>
+              <Box sx={{ ml: 2, mb: 1 }}>stack: "Full-Stack",</Box>
+              <Box sx={{ ml: 2, mb: 1 }}>domain: "Fintech",</Box>
               <Box sx={{ ml: 2, mb: 1 }}>location: "Melbourne",</Box>
-              <Box sx={{ ml: 2, mb: 1 }}>status: "Available"</Box>
+              <Box sx={{ ml: 2, mb: 1 }}>focus: ["payments", "security"]</Box>
               <Box>&#125;;</Box>
             </Box>
           </motion.div>

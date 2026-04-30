@@ -88,37 +88,6 @@ const Sidebar: React.FC = () => {
         </motion.div>
       ))}
 
-      {/* Status Indicator */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          delay: 1.8,
-          duration: 0.8,
-          ease: [0.25, 0.46, 0.45, 0.94],
-        }}
-      >
-        <Box
-          sx={{
-            width: 12,
-            height: 12,
-            borderRadius: "50%",
-            backgroundColor: "#10B981", // Green for available
-            boxShadow: `0 0 20px #10B981`,
-            animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-            mx: "auto",
-            mt: 2,
-            "@keyframes pulse": {
-              "0%, 100%": {
-                opacity: 1,
-              },
-              "50%": {
-                opacity: 0.5,
-              },
-            },
-          }}
-        />
-      </motion.div>
     </Box>
   );
 };

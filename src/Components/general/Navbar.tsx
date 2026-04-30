@@ -16,7 +16,6 @@ const NavList = [
   { name: "Home", link: "home" },
   { name: "About", link: "about" },
   { name: "Experience", link: "experience" },
-  { name: "Work", link: "work" },
 ];
 
 export default function Navbar() {

@@ -74,7 +74,7 @@ export default function About() {
               <Text
                 content={[
                   {
-                    text: `I'm a passionate full-stack developer with a focus on building secure, scalable applications that make a real impact. My journey in tech started during my computer science studies, where I discovered the thrill of creating digital solutions that solve real-world problems.`,
+                    text: `I build secure, scalable systems with a focus on getting the details right — from data integrity and transaction reliability to the performance characteristics that matter at scale. My background spans computer science fundamentals through to production engineering on high-throughput financial platforms.`,
                   },
                 ]}
                 starting={20}
@@ -120,16 +120,12 @@ export default function About() {
                 <Text
                   content={[
                     {
-                      text: `When I'm not coding, you'll find me at the gym, `,
+                      text: `Outside of work, I stay sharp through `,
                     },
-                    { text: "exploring hiking trails", highlight: true },
-                    {
-                      text: ", watching the latest movies, or challenging myself with ",
-                    },
-                    { text: "chess puzzles", highlight: true },
-                    { text: " and " },
-                    { text: "cybersecurity experiments", highlight: true },
-                    { text: " on Kali Linux." },
+                    { text: "chess", highlight: true },
+                    { text: ", " },
+                    { text: "security research", highlight: true },
+                    { text: ", and getting outdoors — hiking when the weather allows, gym otherwise." },
                   ]}
                   starting={20}
                 />

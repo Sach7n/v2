@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import Hero from "../Components/Home/Hero";
 import Experience from "../Components/Home/Experience";
-import Work from "../Components/Home/Work";
 import Social from "../Components/general/Social";
 import About from "../Components/Home/About";
 import ResponsiveSection from "../Components/general/ResponsiveSection";
@@ -22,11 +21,6 @@ const sections = [
   {
     id: "experience",
     component: <Experience />,
-    animationConfig: { delay: 0.2 },
-  },
-  {
-    id: "work",
-    component: <Work displayMode="carousel" />,
     animationConfig: { delay: 0.2 },
   },
 ];
