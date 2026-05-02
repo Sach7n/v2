@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#0D1117" rx="80"/>
+
+  <!--
+    Original paths are from viewBox 0 0 178 98.
+    Content spans x: 22–154 (w=132), y: 20–91 (h=71).
+    Scaled to fill a 400×215 area centred in 512×512.
+    Scale: 400/132 = 3.030
+    tx = 56 – 22×3.030 = -10.66
+    ty = 148.5 – 20×3.030 = 87.9
+    Applied as: translate(-10.66, 87.9) scale(3.030)
+    → stroke-width 7 in group = 21px rendered (≈1.3px at 32px display)
+  -->
+  <g transform="translate(-10.66, 87.9) scale(3.030)"
+     stroke="#00D9FF" stroke-linecap="round" fill="none">
+    <!-- S -->
+    <path
+      d="M 68 20 C 28 20 22 30 22 40 C 22 52 68 56 68 68 C 68 80 22 80 22 76"
+      stroke-width="7"/>
+    <!-- M -->
+    <path
+      d="M 90 80 L 90 20 L 122 52 L 154 20 L 154 80"
+      stroke-width="7"
+      stroke-linejoin="round"/>
+    <!-- Accent underline -->
+    <line x1="22" y1="91" x2="154" y2="91" stroke-width="2" opacity="0.4"/>
+  </g>
+</svg>
