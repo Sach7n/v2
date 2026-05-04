@@ -10,7 +10,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import pdf from "./New_frontend_v2.pdf";
+W;
 
 const NavList = [
   { name: "Home", link: "home" },
@@ -116,40 +116,6 @@ export default function Navbar() {
               </Box>
             </motion.div>
           ))}
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.7, duration: 0.5 }}
-          >
-            <Button
-              href={pdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="outlined"
-              sx={{
-                color: theme.palette.primary.main,
-                borderColor: theme.palette.primary.main,
-                borderWidth: "2px",
-                borderRadius: 2,
-                px: 3,
-                py: 1,
-                fontSize: "0.9rem",
-                fontWeight: 600,
-                fontFamily: theme.typography.fontFamily,
-                textTransform: "none",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  backgroundColor: `${theme.palette.primary.main}15`,
-                  borderColor: theme.palette.primary.main,
-                  transform: "translateY(-2px)",
-                  boxShadow: `0 8px 25px ${theme.palette.primary.main}25`,
-                },
-              }}
-            >
-              Resume
-            </Button>
-          </motion.div>
         </Box>
 
         {/* Mobile Menu Button */}
@@ -218,35 +184,6 @@ export default function Navbar() {
                   </Box>
                 </motion.div>
               ))}
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-              >
-                <Button
-                  href={pdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="outlined"
-                  onClick={toggleDrawer}
-                  sx={{
-                    color: theme.palette.primary.main,
-                    borderColor: theme.palette.primary.main,
-                    borderWidth: "2px",
-                    borderRadius: 2,
-                    px: 4,
-                    py: 1.5,
-                    fontSize: "1.2rem",
-                    fontWeight: 600,
-                    fontFamily: theme.typography.fontFamily,
-                    textTransform: "none",
-                    mt: 2,
-                  }}
-                >
-                  Resume
-                </Button>
-              </motion.div>
             </Stack>
           </motion.div>
         )}

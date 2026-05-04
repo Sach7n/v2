@@ -7,7 +7,6 @@ import {
   Button,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import pdf from "../general/New_frontend_v2.pdf";
 
 export default function Hero() {
   const theme = useTheme();
@@ -146,33 +145,6 @@ export default function Hero() {
           {/* Action Buttons */}
           <motion.div variants={itemVariants}>
             <Box sx={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
-              <Button
-                href={pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="contained"
-                size="large"
-                sx={{
-                  backgroundColor: theme.palette.primary.main,
-                  color: theme.palette.background.default,
-                  px: 4,
-                  py: 2,
-                  fontSize: "1.1rem",
-                  fontWeight: 700,
-                  fontFamily: theme.typography.fontFamily,
-                  textTransform: "none",
-                  borderRadius: 2,
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    backgroundColor: theme.palette.primary.dark,
-                    transform: "translateY(-3px)",
-                    boxShadow: `0 12px 30px ${theme.palette.primary.main}40`,
-                  },
-                }}
-              >
-                View Resume
-              </Button>
-
               <Button
                 href="mailto:sachin.macwan94@gmail.com"
                 variant="outlined"
