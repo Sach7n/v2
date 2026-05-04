@@ -3,7 +3,12 @@
     "allow": [
       "Bash(npm install *)",
       "Bash(node scripts/generate-og.mjs)",
-      "Bash(node -e \"const fs=require\\('fs'\\); const s=fs.statSync\\('public/og-image.png'\\); console.log\\('Size:', Math.round\\(s.size/1024\\)+'KB'\\); const {execSync}=require\\('child_process'\\); try{const r=execSync\\('node -e \\\\\"const sharp=require\\(\\\\'sharp\\\\'\\); sharp\\(\\\\'public/og-image.png\\\\'\\).metadata\\(\\).then\\(m=>console.log\\(\\\\'Dimensions:\\\\',m.width+\\\\'x\\\\'+m.height\\)\\)\\\\\"'\\); console.log\\(r.toString\\(\\)\\)}catch\\(e\\){}\")"
+      "Bash(node -e \"const fs=require\\('fs'\\); const s=fs.statSync\\('public/og-image.png'\\); console.log\\('Size:', Math.round\\(s.size/1024\\)+'KB'\\); const {execSync}=require\\('child_process'\\); try{const r=execSync\\('node -e \\\\\"const sharp=require\\(\\\\'sharp\\\\'\\); sharp\\(\\\\'public/og-image.png\\\\'\\).metadata\\(\\).then\\(m=>console.log\\(\\\\'Dimensions:\\\\',m.width+\\\\'x\\\\'+m.height\\)\\)\\\\\"'\\); console.log\\(r.toString\\(\\)\\)}catch\\(e\\){}\")",
+      "Bash(npm ls *)",
+      "Bash(npx vite *)",
+      "Bash(node -e ' *)",
+      "Bash(Remove-Item -Recurse -Force \"d:\\\\Code\\\\Typescript\\\\V1\\\\V2\\\\node_modules\\\\.vite\" -ErrorAction SilentlyContinue)",
+      "Bash(Write-Host \"Cache cleared\")"
     ]
   }
 }

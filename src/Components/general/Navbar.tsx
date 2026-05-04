@@ -10,7 +10,6 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-W;
 
 const NavList = [
   { name: "Home", link: "home" },

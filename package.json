@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit false && vite build",
-    "preview": "vite preview",
-    "generate-og": "node scripts/generate-og.mjs"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -26,9 +25,8 @@
   "devDependencies": {
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
-    "@vitejs/plugin-react": "^2.2.0",
-    "sharp": "^0.34.5",
+    "@vitejs/plugin-react": "^4.7.0",
     "typescript": "^4.6.4",
-    "vite": "^3.2.3"
+    "vite": "^5.4.21"
   }
 }
